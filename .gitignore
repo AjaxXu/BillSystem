@@ -14,6 +14,7 @@
 target
 log
 logs
+.idea
 *.jar
 *.war
 *.nar
