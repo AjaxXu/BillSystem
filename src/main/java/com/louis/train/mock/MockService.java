@@ -33,7 +33,7 @@ public class MockService {
 
     public final static String HUANG_NIU     = "huang_niu";
     public final static String USER          = "user";
-    private String NO_LOGIN_USER = "no_login";
+    public final static String NO_LOGIN_USER = "no_login";
 
     private UserSummary userSummary = null;
 

@@ -5,8 +5,10 @@
 package com.louis.container;
 
 import com.louis.container.annotation.ServiceProvider;
+import com.louis.container.aop.ProxyFactory;
 import com.louis.container.injection.AutoInjection;
 import com.louis.util.EnhancedServiceLoader;
+import com.louis.util.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +37,11 @@ public class DefaultContainer implements Container {
         idToBean = new HashMap<>();
         // 初始化bean
         AutoInjection.autoInjection(resourceName, findClassLoader(), idToBean);
+        try {
+            ProxyFactory.makeProxyBean(idToBean);
+        } catch (Exception e) {
+            LogUtil.error(LOGGER, e, "Make proxy bean error.");
+        }
     }
 
     @Override
