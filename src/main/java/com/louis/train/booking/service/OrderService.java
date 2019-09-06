@@ -4,7 +4,9 @@
  */
 package com.louis.train.booking.service;
 
+import com.louis.container.annotation.IgnoreCondition;
 import com.louis.train.booking.model.BookingOrder;
+import com.louis.train.mock.MockService;
 
 import java.util.List;
 
@@ -23,6 +25,7 @@ public interface OrderService {
      * @param ticketCount - 购票数量
      * @return 返回购票订单，如果购票失败返回null
      */
+    @IgnoreCondition(ordinal = 0, value = MockService.NO_LOGIN_USER)
     BookingOrder buy(String userName, int ticketCount);
 
     /**
